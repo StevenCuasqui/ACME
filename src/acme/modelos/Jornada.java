@@ -1,4 +1,4 @@
-package acme.empleados;
+package acme.modelos;
 
 public class Jornada {
 	private String dia;
@@ -40,6 +40,8 @@ public class Jornada {
 	public String toString() {
 		return "Jornada [dia=" + dia + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + "]";
 	}
+	
+	
 	
 	
 	
