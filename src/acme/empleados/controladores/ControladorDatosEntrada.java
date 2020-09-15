@@ -9,11 +9,12 @@ import java.util.List;
 
 import acme.modelos.Empleado;
 import acme.modelos.Jornada;
+import acme.modelos.Planilla;
 
-public class ControladorInput {
+public class ControladorDatosEntrada {
 	
 	private List<String> lineas = new ArrayList<String>();
-	List<Empleado> empleados = new ArrayList<Empleado>();
+	private List<Empleado> empleados = new ArrayList<Empleado>();
 
 	public void leerArchivo(File f) {
 		
@@ -37,7 +38,7 @@ public class ControladorInput {
 		int tamanio = this.lineas.size();
 		
 		for(int i=0;i<tamanio;i++) {
-			//Obtner cada línea de DATA
+
 			String empleado1 = this.lineas.get(i);
 			
 			String[] empleadoPartes = empleado1.split("=");
@@ -46,6 +47,7 @@ public class ControladorInput {
 			String[] horarios = empleadoPartes[1].split(",");
 			
 			List<Jornada> jornadaCompleta = new ArrayList<Jornada>();
+			
 			
 			this.empleados.add(new Empleado(nombreEmpleado,jornadaCompleta,0.0));
 			
@@ -56,9 +58,8 @@ public class ControladorInput {
 			}
 			
 			this.empleados.get(i).setJornadaSemanal(jornadaCompleta);
-			System.out.println(this.empleados.get(i));
 			
-		}				
+		}	
 		
 	}
 	
@@ -71,6 +72,10 @@ public class ControladorInput {
 		jornadaM = new Jornada(dia,horaInicio,horaFin);
 		return jornadaM;
 		
+	}
+	
+	public List<Empleado> asignarDatosAPlanilla() {
+		return this.empleados;
 	}
 	
            

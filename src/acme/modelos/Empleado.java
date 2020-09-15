@@ -7,8 +7,6 @@ public class Empleado {
 	private List<Jornada> jornadaSemanal;
 	private double salario;
 
-	
-
 	public Empleado(String nombre, List<Jornada> jornadaSemanal, double salario) {
 		super();
 		this.nombre = nombre;
@@ -42,7 +40,7 @@ public class Empleado {
 
 	@Override
 	public String toString() {
-		return "Empleado [nombre=" + nombre + ", jornadaSemanal=" + jornadaSemanal + ", salario=" + salario + "]";
+		return "\n Nombre=" + nombre + ", jornadaSemanal=" + jornadaSemanal + ", salario=" + salario + "]";
 	}
 	
 }

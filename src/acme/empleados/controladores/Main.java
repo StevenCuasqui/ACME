@@ -2,7 +2,11 @@ package acme.empleados.controladores;
 
 import java.io.File;
 
+import acme.modelos.Planilla;
+
 public class Main {
+	
+	private static Planilla nomina;
 
 	public static void main(String[] args) {
 
@@ -13,7 +17,11 @@ public class Main {
 	
 	private static void obtenerDatos() {
 		File f = new File("data.txt");
-		ControladorInput datos = new ControladorInput();
+		ControladorDatosEntrada datos = new ControladorDatosEntrada();
 		datos.leerArchivo(f);
+		nomina = new Planilla();
+		nomina.setEmpleadosEmpresa(datos.asignarDatosAPlanilla());
+		System.out.println(nomina);
+		
 	}
 }
