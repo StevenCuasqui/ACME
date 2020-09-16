@@ -9,7 +9,6 @@ import java.util.List;
 
 import acme.modelos.Empleado;
 import acme.modelos.Jornada;
-import acme.modelos.Planilla;
 
 public class ControladorDatosEntrada {
 	
