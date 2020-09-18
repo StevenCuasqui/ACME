@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import acme.empleados.controllers.PersonnelController;
+import acme.employees.controllers.PersonnelController;
 
 @RunWith(value = Parameterized.class)
 public class PaymentTest {
