@@ -1,9 +1,6 @@
 package acme.empleados.controllers;
 
 import java.io.File;
-import java.io.IOError;
-import java.io.IOException;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import acme.models.Personnel;
@@ -13,12 +10,13 @@ public class Main {
 	private static Personnel staff;
 
 	public static void main(String[] args) {
-
-		System.out.println("Welcome to ACME payroll system");
 		
+		System.out.println("Welcome to ACME payroll system");
 		readTextFile();
 		calculateSalaryOfStaff();
 		searchEmployee();
+		
+		
 	}
 
 	private static void readTextFile() {
@@ -52,27 +50,38 @@ public class Main {
 	
 	private static void searchEmployee() {
 		
-		Scanner input = new Scanner(System.in);
+		Scanner input,input2; 
     	String name="",nameComparison;
-
-
-       	System.out.println("Please, enter the name of the employee to search: ");
-        name = input.next();
-        input.close();
-        
-        for (int i = 0; i < staff.getEmployees().size() ; i++ ) {
-        	nameComparison = staff.getEmployees().get(i).getName();
-        	
-        	if(nameComparison.equalsIgnoreCase(name)) {
-        		System.out.println("The amount to pay "+name+" is: "+staff.getEmployees().get(i).getPayment());
-        		break;
-        	}
-        	
-        	if(i == staff.getEmployees().size() - 1) {
-        		System.out.println("The employee doesn't exists");
-        	}
-        	
-        }
+    	String check="";
+    	do {
+	    	System.out.println("Please, enter the name of the employee to search: ");
+	       	input = new Scanner(System.in);
+	        name = input.next();
+	        //input.close();
+	        
+	        for (int i = 0; i < staff.getEmployees().size() ; i++ ) {
+	        	nameComparison = staff.getEmployees().get(i).getName();
+	        	
+	        	if(nameComparison.equalsIgnoreCase(name)) {
+	        		System.out.println("The amount to pay "+name+" is: "+staff.getEmployees().get(i).getPayment());
+	        		break;
+	        	}
+	        	
+	        	if(i == staff.getEmployees().size() - 1) {
+	        		System.out.println("The employee doesn't exists");
+	        	}
+	        	
+	        }
+	        
+	        System.out.println("Do you want to search again? (Press Y for confirmation, Press any key to exit )");
+	        input2 = new Scanner(System.in);
+	        check = input2.next();
+	        
+    	}while(check.equalsIgnoreCase("Y"));
+    	System.out.println("Come back soon!");
+    	input.close();
+    	input2.close();
+       	
         
         
 	}
